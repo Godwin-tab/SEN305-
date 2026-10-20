@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>School Reg</title>
+</head>
+
+<body>
+    <div class="border lg:w-[30%] sm:w-[50%] rounded-sm mx-auto mt-10 p-5">
+        <div>
+            <h3 class="text-center mb-4 underline text-2xl">Registration</h3>
+            <form>
+                <div>
+                    <label for="fname">First Name</label><br>
+                    <input
+                        class="border p-1 w-full focus:rounded-md duration-500 ease-in-out outline-none focus:border-green-500 mb-3"
+                        type="text" id="fname" name="fname"><br>
+                    <span id="fNameErr"></span>
+                </div>
+                <div>
+                    <label for="lname">Last Name</label><br>
+                    <input
+                        class="border p-1 w-full focus:rounded-md duration-500 ease-in-out outline-none focus:border-green-500 mb-3"
+                        type="text" id="lname" name="lname"><br>
+                    <span id="lNameErr"></span>
+                </div>
+                <div>
+                    <label for="email">Email</label><br>
+                    <input
+                        class="border p-1 w-full focus:rounded-md duration-500 ease-in-out outline-none focus:border-green-500 mb-3"
+                        type="text" id="email" name="email"><br>
+                    <span id="emailErr"></span>
+                </div>
+                <div>
+                    <label for="phone">Phone No</label><br>
+                    <input
+                        class="border p-1 w-full focus:rounded-md duration-500 ease-in-out outline-none focus:border-green-500 mb-3"
+                        type="text" id="phone" name="phone"><br>
+                    <span id="phoneErr"></span>
+                </div>
+                <div>
+                    <label for="department">Department</label><br>
+                    <select name="department" id="department"
+                        class=" text-center border p-1 w-full focus:rounded-md duration-500 ease-in-out outline-none focus:border-green-500 mb-3">
+                        <option class="text-left" value="">Select</option>
+                        <option class="text-left" value="software">Software Engineering</option>
+                        <option class="text-left" value="computer">Computer Science</option>
+                        <option class="text-left" value="engineering">Computer Engineering</option>
+                        <option class="text-left" value="law">Law</option>
+                        <option class="text-left" value="history">History</option>
+                        <option class="text-left" value="medicine">Medicine</option>
+                    </select><br>
+                    <span id="departmentErr"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="level">Level</label><br>
+                    <input
+                        class="border p-1 w-full focus:rounded-md duration-500 ease-in-out outline-none focus:border-green-500 mb-3"
+                        type="number" id="level" name="level" min="100" max="600" step="100"><br>
+                    <span id="levelErr"></span>
+                </div>
+                <div class="mb-5">
+                    <button class="border p-1 w-full bg-blue-700 rounded-md text-white hover:bg-blue-800"
+                        id="btn">Submit</button><br>
+                </div>
+                <div id="display">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
