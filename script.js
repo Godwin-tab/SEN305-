@@ -195,9 +195,17 @@ btn.addEventListener("click", function (e) {
     if(isValid == 7) {
         display.innerHTML = `
             <div class="text-center bg-green-400 w-full rounded-md">
-                    <p>Cridentials submitted successfully!</p>
+                    <p>Registration successful!</p>
                 </div>
         `;
+
+        console.log("First Name: " + fname.value);
+        console.log("Last Name: " + lname.value);
+        console.log("Email: " + email.value);
+        console.log("Phone: " + phone.value);
+        console.log("Department: " + department.value);
+        console.log("Level: " + level.value);
+
         
     // Set a timer to automatically clear the form after 3000 milliseconds (3 seconds)
     setTimeout( () => {
