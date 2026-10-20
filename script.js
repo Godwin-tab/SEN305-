@@ -4,7 +4,6 @@
 // These variables connect to the input fields and button in the HTML using their IDs.
 let fname = document.getElementById("fname");
 let lname = document.getElementById("lname");
-let matric = document.getElementById("matric");
 let email = document.getElementById("email");
 let phone = document.getElementById("phone");
 let department = document.getElementById("department");
@@ -19,7 +18,7 @@ let emailErr = document.getElementById("emailErr");
 let phoneErr = document.getElementById("phoneErr");
 let departmentErr = document.getElementById("departmentErr");
 let levelErr = document.getElementById("levelErr");
-let matricErr = document.getElementById("matricErr");
+
 // --- STEP 2: FORM SUBMISSION EVENT ---
 // Listens for a click on the "Submit" button
 btn.addEventListener("click", function (e) {
@@ -52,18 +51,6 @@ btn.addEventListener("click", function (e) {
     else{
         lNameErr.innerHTML = "";
         lname.style.border = "1px solid green";
-        isValid += 1;
-    }
-
-    // matric number validation
-    if(matric.value == "" || matric.value == null) {
-        matricErr.innerHTML = "Matric number is required";
-        matricErr.style.color = "red";
-        matric.style.border = "1px solid red";
-    }
-    else{
-        matricErr.innerHTML = "";
-        matric.style.border = "1px solid green";
         isValid += 1;
     }
 
