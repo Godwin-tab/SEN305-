@@ -6,6 +6,7 @@ let fname = document.getElementById("fname");
 let lname = document.getElementById("lname");
 let email = document.getElementById("email");
 let phone = document.getElementById("phone");
+let matric = document.getElementById("matric");
 let department = document.getElementById("department");
 let level = document.getElementById("level");
 let btn = document.getElementById("btn");
@@ -16,6 +17,7 @@ let fNameErr = document.getElementById("fNameErr");
 let lNameErr = document.getElementById("lNameErr");
 let emailErr = document.getElementById("emailErr");
 let phoneErr = document.getElementById("phoneErr");
+let matricErr = document.getElementById("matricErr");
 let departmentErr = document.getElementById("departmentErr");
 let levelErr = document.getElementById("levelErr");
 
@@ -25,7 +27,7 @@ btn.addEventListener("click", function (e) {
     // Prevents the default browser behavior (which is reloading the page)
     e.preventDefault();
     
-    // Counter to track how many inputs are correctly filled. Needs to reach 6 to pass.
+    // Counter to track how many inputs are correctly filled. Needs to reach 7 to pass.
     isValid = 0;
     
     // --- STEP 3: VALIDATION LOGIC ---
@@ -90,7 +92,27 @@ btn.addEventListener("click", function (e) {
         isValid += 1;
     }
 
-    // 5. Department Validation
+    // 5. Matric Number Validation (Format: VUG/SEN/24/12878)
+    // Regular Expression: Matches 3 letters / 3 letters / 2 digits / 5 digits
+    let matricPattern = /^VUG\/[A-Z]{3}\/\d{2}\/\d{5}$/i;
+
+    if(matric.value == "" || matric.value == null) {
+        matricErr.innerHTML = "Matric number is required";
+        matricErr.style.color = "red";
+        matric.style.border = "1px solid red";
+    }
+    else if(!matricPattern.test(matric.value.trim())) {
+        matricErr.innerHTML = "Please input a valid matric number (e.g., VUG/SEN/24/12878)";
+        matricErr.style.color = "red";
+        matric.style.border = "1px solid red";
+    }
+    else{
+        matricErr.innerHTML = "";
+        matric.style.border = "1px solid green";
+        isValid += 1;
+    }
+
+    // 6. Department Validation
     if(department.value == "" || department.value == null) {
         departmentErr.innerHTML = "Department is required";
         departmentErr.style.color = "red";
@@ -102,7 +124,7 @@ btn.addEventListener("click", function (e) {
         isValid += 1;
     }
 
-    // 6. Level Validation
+    // 7. Level Validation
     if(level.value == "" || level.value == null) {
         levelErr.innerHTML = "Level is required";
         levelErr.style.color = "red";
@@ -147,7 +169,6 @@ btn.addEventListener("click", function (e) {
     }
 
     // --- STEP 4: DEPARTMENT-SPECIFIC RULES ---
-    // Note for group: These checks trigger visual errors, but they don't subtract from the 'isValid' score.
     if(department.value == "software" && level.value >= 500){
         levelErr.innerHTML = "Invalid level for Software Engineering";
         levelErr.style.color = "red";
@@ -170,8 +191,8 @@ btn.addEventListener("click", function (e) {
     }
 
     // --- STEP 5: SUCCESS ACTION & FORM RESET ---
-    // If all 6 basic fields passed validation, show success message
-    if(isValid == 6) {
+    // If all 7 fields passed validation, show success message
+    if(isValid == 7) {
         display.innerHTML = `
             <div class="text-center bg-green-400 w-full rounded-md">
                     <p>Cridentials submitted successfully!</p>
@@ -185,12 +206,14 @@ btn.addEventListener("click", function (e) {
             lname.value = "";
             email.value = "";
             phone.value = "";
+            matric.value = "";
             department.value = "";
             level.value = "";
             fname.style.border = "1px solid black"  // Resets borders back to default black
             lname.style.border = "1px solid black"
             email.style.border = "1px solid black"
             phone.style.border = "1px solid black"
+            matric.style.border = "1px solid black"
             department.style.border = "1px solid black"
             level.style.border = "1px solid black"
         }, 3000);
