@@ -61,7 +61,7 @@ async function loadProfile() {
         });
     } catch (error) {
         document.getElementById("fullName").textContent = "Student Dashboard";
-        message.textContent = "Could not load your details. Try again later.";
+        message.innerHTML = "Could not load your details. Try again later.";
         message.className = "error";
     }
 }
