@@ -44,7 +44,7 @@ async function loadProfile() {
 
         const student = await response.json();
 
-        document.getElementById("fullName").textContent =
+        document.getElementById("fullName").innerHTML =
             `${student.firstName} ${student.lastName}`;
 
         document.querySelectorAll("[data-field]").forEach((el) => {
